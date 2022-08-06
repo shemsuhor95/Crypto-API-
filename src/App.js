@@ -1,12 +1,26 @@
-
-import './App.css';
+import PublicNavbar from "./components/PublicNavbar";
+import {Routes, Route, Link} from "react-router-dom";
+import Home from "./pages/Home";
+import styled from "styled-components";
+import Doodle from "./doodle";
+import './index.scss';
 
 function App() {
-  return (
-    <div className="App">
+    return (
+        <div className='App'>
 
-    </div>
-  );
+            <PublicNavbar/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+            </Routes>
+        </div>
+
+
+    );
 }
+
+
+
+
 
 export default App;
