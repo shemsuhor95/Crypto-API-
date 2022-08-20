@@ -45,6 +45,7 @@ const headerMarket = [
 function HomeMarketView() {
     async function getCoins() {
         const res = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+        console.log(res)
         setState({...state, coins: res.data});
     }
 
@@ -54,7 +55,7 @@ function HomeMarketView() {
     const [state, setState] = useState(initialState);
     useEffect(() => {
         getCoins();
-    }, [])
+    })
 
 const filter=async (e)=>{
   const result = await e.target.value
@@ -138,6 +139,8 @@ const MarketView = styled.div`
   gap: 2em;
   overflow: scroll;
   max-height: 500px;
+  min-height:500px;
+  height:500px;
   -webkit-box-shadow: 1px 2px 26px 12px rgba(55,255,170,0.3);
   box-shadow: 1px 2px 26px 12px rgba(55,255,170,0.3);
   border-radius: 1rem;
@@ -209,6 +212,8 @@ display: flex;
     text-shadow: 1px 2px 26px 12px rgba(55,255,170,0.3);
   }
   input{
+    position:relative;
+    z-index:3;
     border-radius: 1rem;
     border:none;
     padding: 0.5em;
